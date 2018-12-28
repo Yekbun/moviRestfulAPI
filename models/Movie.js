@@ -2,7 +2,7 @@ const mongoose =require('mongoose');
 const Shema = mongoose.Schema;
 
 const MovieShema=new Shema({
-    directorId:Shema.Types.ObjectId,
+    director_id:Shema.Types.ObjectId,
     title:{
         type:String,
         required:true
