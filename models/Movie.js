@@ -10,7 +10,7 @@ const MovieShema=new Shema({
     category:String,
     country:String,
     year:Number,
-    imdb:Number,
+    imdb_score:Number,
     date:{
         type:Date,
         default:Date.now
