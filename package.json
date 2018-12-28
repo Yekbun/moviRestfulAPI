@@ -1,26 +1,23 @@
 {
-  "name": "moviRestFulAPI",
-  "version": "1.0.0",
-  "description": "| Route | HTTP Verb\t | POST body\t | Description\t |\r | --- | --- | --- | --- |\r | /api/movies | `GET` | Empty | List all movies. |\r | /api/movies | `POST` | {'title':'foo', 'category':'bar', 'country':'Turkey', year:1990, director:\"id\", imdb_score: 9.7 } | Create a new movie. |\r | /api/movies/:movie_id | `GET` | Empty | Get a movie. |\r | /api/movies/:movie_id | `PUT` | {'name':'foo', 'surname':'bar'} | Update a movie with new info. |\r | /api/movies/:movie_id | `DELETE` | Empty | Delete a movie. |\r | /api/movies/top10 | `GET` | Empty | Get the top 10 movies. |\r | /api/movies/between/:start_year/:end_year | `GET` | Empty | Movies between two dates. |",
-  "main": "index.js",
+  "name": "movirestfulapi",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Yekbun/moviRestfulAPI.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Yekbun/moviRestfulAPI/issues"
-  },
-  "compilerOptions": {
-    "target": "ES6"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "lodash": "^4.17.0"
-},
-  "homepage": "https://github.com/Yekbun/moviRestfulAPI#readme"
+    "bcrypt": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.0",
+    "morgan": "~1.9.0",
+    "node-gyp": "^3.8.0",
+    "node-pre-gyp": "^0.12.0",
+    "python": "0.0.4"
+  }
 }
