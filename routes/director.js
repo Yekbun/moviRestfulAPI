@@ -103,8 +103,6 @@ router.get('/:director_id', (req, res) => {
 		res.json(err);
 	});
 });
-
-
   
 // Add director
 router.post('/', (req,res )=>{
@@ -113,6 +111,39 @@ router.post('/', (req,res )=>{
     promise.then((result) => {
       res.json({status:1})
     }).catch((err) => {
+      res.json(err);
+    });
+  });
+
+  
+//Update director by id
+router.put('/:director_id', (req, res, next) => {
+	const promise = Director.findByIdAndUpdate(
+		req.params.director_id,
+		req.body,
+		{
+			new: true
+		}
+	);
+
+	promise.then((result) => {
+		if (!result)
+			next({ message: 'The director was not found.', code: 99 });
+		res.json(director);
+	}).catch((err) => {
+		res.json(err);
+	});
+});
+  
+  //Delete director by id
+  router.delete('/:director_id', (req, res,next) =>{
+    const promise = Director.findByIdAndRemove(req.params.director_id);
+    promise.then((result)=>{
+      if (!result)
+      next({ message: 'The director was not found.', code: 99 });
+  
+    res.json({status:1});
+    }).catch((err)=>{
       res.json(err);
     });
   });
