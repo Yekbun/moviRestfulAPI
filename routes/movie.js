@@ -29,17 +29,7 @@ router.get('/', (req, res) =>{
 });
 
 //Get top 10 movies
-router.get('/:top2', (req, res) =>{
-  const promise = Movie.find().limit(2).sort({imdb_score:-1});
-  promise.then((movie)=>{
-    res.json(movie);
-  }).catch((err)=>{
-    res.json(err);
-  });
-});
-
-//Get top 10 movies
-router.get('/:top10', (req, res) =>{
+router.get('/top10', (req, res) =>{
   const promise = Movie.find().limit(10).sort({imdb_score:-1});
   promise.then((movie)=>{
     res.json(movie);
@@ -48,20 +38,18 @@ router.get('/:top10', (req, res) =>{
   });
 });
 
-
-
-
 //Get movie by Id
-router.get('/:movie_id', (req, res,next) =>{
-  const promise = Movie.findById(req.params.movie_id);
-  promise.then((movie)=>{
-    if (!movie)
-    next({ message: 'The movie was not found.', code: 99 });
+router.get('/:movie_id', (req, res, next) => {
+	const promise = Movie.findById(req.params.movie_id);
+	promise.then((movie) => {
+		console.log(movie);
+		if (!movie)
+			next({ message: 'The movie was not found.', code: 99 });
 
-  res.json(movie);
-  }).catch((err)=>{
-    res.json(err);
-  });
+		res.json(movie);
+	}).catch((err) => {
+		res.json(err);
+	});
 });
 
 /* Between two dates */
@@ -84,7 +72,7 @@ router.post('/', (req,res,next)=>{
   const movie= new Movie( req.body);
   const promise = movie.save();
   promise.then((result) => {
-    res.json({status:1})
+    res.json(result);
   }).catch((err) => {
     res.json(err);
   });
@@ -102,7 +90,7 @@ router.put('/:movie_id', (req, res,next) =>{
     if (!movie)
     next({ message: 'The movie was not found.', code: 99 });
 
-    res.json({status:1})
+    res.json(movie)
   }).catch((err)=>{
     res.json(err);
   });
