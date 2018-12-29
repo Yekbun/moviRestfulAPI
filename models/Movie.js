@@ -5,7 +5,9 @@ const MovieShema=new Shema({
     director_id:Shema.Types.ObjectId,
     title:{
         type:String,
-        required:true
+        required:[true, "`{PATH}` alani zorunludur"],
+        maxlength:[100,"`{PATH}` alani alani maksimum 15 olmalidir"],
+        minlength:1
     },
     category:String,
     country:String,
@@ -16,5 +18,6 @@ const MovieShema=new Shema({
         default:Date.now
     }
 });
+
 
 module.exports = mongoose.model('movie', MovieShema);
