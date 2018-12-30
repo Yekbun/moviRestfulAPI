@@ -88,10 +88,9 @@ router.put('/:movie_id', (req, res,next) =>{
     });
   promise.then((movie)=>{
     if (!movie)
-      next({ message: 'The movie was not found.', code: 99 });
-    
-    res.json({status:1}); //WARNINNGGGG
-   // res.json(movie)
+    next({ message: 'The movie was not found.', code: 99 });
+
+    res.json(movie)
   }).catch((err)=>{
     res.json(err);
   });
