@@ -8,7 +8,7 @@ const User = require('../models/User');
 
 /* GET home page. */
 router.get('/', (req, res, next)=> {
-  res.render('index', { title: 'Bakalim test basarili olmusmus' });
+  res.render('index', { title: 'Bakalim test basarili--Basarisiz' });
 });
 
 
